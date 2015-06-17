@@ -80,6 +80,7 @@ public class SMSTrackerFX extends Application {
         button.setOnAction(e->{
             view.setItems(FXCollections.observableArrayList(PlatformService.getInstance().readSMSs()));
         });
+        
         buttonSend.setOnAction(e->{
             PlatformService.getInstance().sendSMS(number.getText(),message.getText());
         });
@@ -88,16 +89,16 @@ public class SMSTrackerFX extends Application {
             Platform.runLater(()->incoming.setText(s1.toString()));
         });
 
-//            Rectangle2D visualBounds = Screen.getPrimary().getVisualBounds();
-//            Scene scene = new Scene(root, visualBounds.getWidth(), visualBounds.getHeight());
-//            scene.getStylesheets().add(getClass().getResource("root.css").toExternalForm());
-        Scene scene = new Scene(root, 400, 700);
-        stage.setScene(scene);
-        stage.show();
-
         PlatformService.getInstance().messageProperty().addListener((obs,s,s1)->{
             Platform.runLater(()->incoming.setText(s1.toString()));
         });
+        
+        Rectangle2D visualBounds = Screen.getPrimary().getVisualBounds();
+        Scene scene = new Scene(root, visualBounds.getWidth(), visualBounds.getHeight());
+        scene.getStylesheets().add(getClass().getResource("root.css").toExternalForm());
+        stage.setScene(scene);
+        stage.show();
+
         // start broadcast
         PlatformService.getInstance().listenToIncomingSMS();
     }

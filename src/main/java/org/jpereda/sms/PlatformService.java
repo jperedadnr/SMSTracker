@@ -10,6 +10,10 @@ import java.util.logging.Logger;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 
+/**
+ *
+ * @author jpereda
+ */
 public class PlatformService {
 
     public static final String DESKTOP = "Desktop";

@@ -3,14 +3,18 @@ package org.jpereda.sms;
 import java.util.List;
 import javafx.beans.property.ObjectProperty;
 
-    public interface PlatformProvider {
+/**
+ *
+ * @author jpereda
+ */
+public interface PlatformProvider {
 
-        void sendSMS(String number, String message);
+    void sendSMS(String number, String message);
 
-        List<SMSMessage> readSMSs();
+    List<SMSMessage> readSMSs();
 
-        void listenToIncomingSMS();
+    void listenToIncomingSMS();
 
-        ObjectProperty<SMSMessage> messagesProperty();
+    ObjectProperty<SMSMessage> messagesProperty();
 
-    }
+}
