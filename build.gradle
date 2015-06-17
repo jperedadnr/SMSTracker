@@ -1,0 +1,25 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'org.javafxports:jfxmobile-plugin:1.0.0-b9'
+    }
+}
+
+apply plugin: 'org.javafxports.jfxmobile'
+
+repositories {
+    jcenter()
+}
+
+mainClassName = 'org.jpereda.sms.SMSTrackerFX'
+
+jfxmobile {
+    ios {
+        forceLinkClasses = [ 'org.jpereda.sms.**.*' ]
+    }
+    android {
+        manifest = 'lib/AndroidManifest.xml'
+    }
+}
